@@ -1,0 +1,53 @@
+{
+  "name": "@mangs/performance-reporter",
+  "version": "1.0.0",
+  "author": "Eric L. Goldstein",
+  "description": "Measure, collect, and report application performance metrics",
+  "engines": {
+    "node": "22.12.0"
+  },
+  "packageManager": "npm@10.9.0",
+  "homepage": "https://github.com/mangs/performance-reporter#readme",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:mangs/performance-reporter.git"
+  },
+  "keywords": [
+    "performance",
+    "core web vitals"
+  ],
+  "files": [
+    "./dist"
+  ],
+  "exports": {
+    ".": "./dist/performance-reporter.mjs"
+  },
+  "scripts": {
+    "build": "node --run check:types && vite build",
+    "check:formatting": "prettier --check --no-editorconfig .",
+    "check:lint-conflicts": "eslint-config-prettier ./src/functions/about.js",
+    "check:types": "tsc",
+    "delete:node-modules": "rm -rf node_modules",
+    "delete:package-lock": "rm -f package-lock.json",
+    "dev": "vite",
+    "format:code": "prettier --write --no-editorconfig .",
+    "lint:typescript": "echo Linting all TypeScript... && eslint --ext mts,ts --max-warnings 0 .",
+    "list:eslint:disable-directives": "rg '/(/|\\*+)[ \\t]*eslint-disable[^*]*(\\*+/)?'",
+    "list:todo-comments": "rg --only-matching '(TODO|FIXME)([\t ]+\\[[^\\]]+\\])?:[\\w\\s!\"#$%&'\\''()+,./:;<=>?@\\^_`{|}~-]+'",
+    "preview": "vite preview",
+    "reinstall": "node --run delete:package-lock && node --run delete:node-modules && npm install"
+  },
+  "dependencies": {
+    "web-vitals": "4.2.4"
+  },
+  "devDependencies": {
+    "@babbel/eslint-config": "2.2.0",
+    "@types/node": "22.10.2",
+    "browserslist": "4.24.3",
+    "eslint": "8.57.1",
+    "eslint-config-prettier": "9.1.0",
+    "prettier": "3.4.2",
+    "typescript": "5.7.2",
+    "vite": "6.0.3"
+  }
+}

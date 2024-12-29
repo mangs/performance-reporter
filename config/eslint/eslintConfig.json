@@ -1,0 +1,14 @@
+{
+  "root": true,
+  "extends": [
+    "@babbel/eslint-config/typescript",
+    "@babbel/eslint-config/jsdoc-typescript",
+    "@babbel/eslint-config/browser"
+  ],
+  "rules": {
+    "@typescript-eslint/no-use-before-define": [
+      "error",
+      { "functions": false, "classes": true, "variables": true, "allowNamedExports": false }
+    ]
+  }
+}
